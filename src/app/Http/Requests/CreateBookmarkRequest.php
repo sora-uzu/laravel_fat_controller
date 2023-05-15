@@ -20,7 +20,7 @@ class CreateBookmarkRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -31,9 +31,9 @@ class CreateBookmarkRequest extends FormRequest
     public function rules()
     {
         return [
-            `url` => 'required|string|url',
+            'url' => 'required|string|url',
             'comment' => 'required|string|min:10|max:1000',
-            'category' => 'required|integer|exists:bookmark_categories,id'
+            'category' => 'required|integer|exists:bookmark_categories,id',
         ];
     }
 }
